@@ -24,7 +24,7 @@ body {
   width: 100%;
   height: 80px;
   line-height: 80px;
-  background-color: #003399;
+  background-color: #0066cc;
 }
 
 .footer {
@@ -140,7 +140,7 @@ input[type="submit"]:hover {
   height: 3px;
   width: 0px;
   border-radius: 4px;
-  background-color: #003399;
+  background-color: #0066cc;
 
   -webkit-transition: all .3s ease-in-out;
   -o-transition:      all .3s ease-in-out;
@@ -263,7 +263,7 @@ input[type="submit"]:hover {
 .button {
   text-align: right;
   padding: 8px;
-  background-color: #003399;
+  background-color: #0066cc;
   color: #FFF;
   border-radius: 2px;
   font-size: 15px;
@@ -279,7 +279,7 @@ input[type="submit"]:hover {
 
 .button:hover {
   cursor: pointer;
-  background-color: #001133;
+  background-color: #004080;
 }
 
 .event {

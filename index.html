@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>WOWendar</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,700" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" />
     <script src="scripts/main.js"></script>
     <!--[if IE]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -20,7 +20,7 @@
         <div class="card person" onclick="selectPerson('person1')">
           <img class="demo-pic" src="images/person1.jpg">
           <h3 class="center">Dan</h3>
-          <div>Dan is 46 and works in downtown columbus. He's an active fellow: he enjoys golf, tennis and football. Outside of sports, he enjoys listening to music and drinking coffee.</div>
+          <div>Dan is 46 and works in downtown Columbus. He's an active fellow: he enjoys golf, tennis and football. Outside of sports, he enjoys listening to music and drinking coffee.</div>
         </div>
 
         <div class="card person person-offset" onclick="selectPerson('person2')">
@@ -93,50 +93,21 @@
 
         <!-- Upcoming Events -->
         <div id="upcoming-events" class="view">
-        <!--
-          <div id="event-1" class="card event">
-            <img class="event-picture" src="images/event1.jpg">
-            <div class="grey-screen"></div>
-            <div class="event-details">
-              <div class="event-title">Stir Trek</div>
-              <div class="date">August 5</div>
-              <div class="time">11:30 AM</div>
-              <br>
-              <div class="description">Go on quests to stir as many things as possible!</div>
-              <br>
-              <br>
-              <div class="stars float-left">
-                <span class="star" title="!Can't wait"></span><span class="star" title="Looking forward to it"></span><span class="star" title="Could be fun"></span><span class="star" title="I'll probably pass"></span><span class="star" title="No thanks"></span>
-              </div>
-              <div class="float-right"><span class="button">Add to Calendar</span></div>
-              <br>
-            </div>
-          </div>
-
-          <div id="event-2" class="card event">
-            <img class="event-picture" src="images/event6.jpg">
-            <div class="grey-screen"></div>
-            <div class="event-details">
-              <div class="event-title">Fly a Kite</div>
-              <div class="date">August 10</div>
-              <div class="time">12:30 PM</div>
-              <br>
-              <div class="description">Go fly a kite! The weather is fantastic. Stretch your legs.</div>
-              <br>
-              <br>
-              <div class="stars float-left">
-              <span class="star" title="!Can't wait" onclick="selectRating(this)"></span><span class="star" title="Looking forward to it" onclick="selectRating(this)"></span><span id="3-star-event-2" class="star" title="Could be fun" onclick="selectRating(this)"></span><span id="2-star-event-2" class="star" title="I'll probably pass" onclick="selectRating(this)"></span><span id="2-star-event-2" class="star" title="No thanks" onclick="selectRating(this)"></span>
-              </div>
-              <div class="float-right"><span class="button">Add to Calendar</span></div>
-              <br>
-            </div>
-          </div>
-          -->
+          <img id="loading" src="images/wait-spinner.gif">
         </div>
 
         <!-- MyCal -->
         <div id="my-cal" class="view">
-        My Cal
+          <div class="daysOfWeek">
+            <span>Monday</span>
+            <span>Tuesday</span>
+            <span>Wednesday</span>
+            <span>Thursday</span>
+            <span>Friday</span>
+          </div>
+          <div class="timeOfWeek">
+
+          </div>
         </div>
 
         <!-- Nearby events -->

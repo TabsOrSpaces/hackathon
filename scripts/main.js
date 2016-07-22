@@ -134,19 +134,19 @@ var events = [
 
 var people = {
   person1: {
-    age: 46,
+    age: "46",
     gender: "male",
     city: "columbus",
     tags: ['golf', 'tennis', 'football', 'music', 'coffee']
   },
   person2: {
-    age: 34,
+    age: "34",
     gender: "female",
     city: "dublin",
     tags: ['pets', 'pizza', 'hiking', 'rowing', 'politics']
   },
   person3: {
-    age: 25,
+    age: "25",
     gender: "female",
     city: "scottsdale",
     tags: ['programming', 'board_games', 'video_games', 'star_wars', 'pokemon']
@@ -254,6 +254,7 @@ function selectPerson (person) {
       return;
     }
 
+    $('loading').style.display = "none";
     var resp = JSON.parse(response.responseText);
     var sorting = resp.Results.output1.value.Values;
 
@@ -270,10 +271,11 @@ function selectPerson (person) {
   response.setRequestHeader("Access-Control-Allow-Methods",
                        "POST, GET, PUT, UPDATE, OPTIONS");
   response.setRequestHeader("Access-Control-Allow-Headers",
-                       "Content-Type, Accept, X-Requested-With");
+                       "Content-Type, Accept, X-Auth-Token");
   response.setRequestHeader("Authorization",
                             "Bearer FEULMhAR699fWgNiAELbzVSYZaB5WXU91ap8y8gXy+Znk8Lvd5DsfIssvFIlfNf9vTCuyUyfdc308+AN47dQ3A=="),
-  response.send(buildRequest(person));
+  console.log(buildRequest(person));
+  response.send(JSON.stringify(buildRequest(person)));
 }
 
 function reOrderEvents (sorting) {
@@ -282,11 +284,11 @@ function reOrderEvents (sorting) {
   }
 
   var sortedEvents = events.sort(function (a, b) {
-    return a.sortOrder > b.sortOrder;
+    return parseFloat(a.sortOrder) > parseFloat(b.sortOrder);
   });
 
   for (var j = 0; j < sortedEvents.length; j++) {
-    addEvent('upcoming-events', events[j]);
+    addEvent('upcoming-events', sortedEvents[j]);
   }
 }
 
@@ -401,7 +403,7 @@ function buildRequest (person) {
 
   request = {
     "Inputs" : {
-      "input1": {
+      "PersonEvent": {
         "ColumnNames" : [
           "age",
           "gender",
@@ -482,23 +484,13 @@ function buildRequest (person) {
 
   for (var pt = 0; pt < people[person].tags.length; pt++) {
     for (var t = 0; t < tags.length; t++) {
-      if ("person_" + people[person].tags[pt] === tags[t]) {
+      if (people[person].tags[pt] === tags[t]) {
         personTags[t] = "true";
       }
     }
   }
 
   for (var e = 0; e < events.length; e++) {
-    for (var et = 0; et < events.tags; et++) {
-      for (var t = 0; t < tags.length; t++) {
-        if ("event_" + events.tags[et] === tags[t]) {
-          eventTags[t] = "true";
-        }
-      }
-    }
-    // Concat arrays
-    request.Inputs.input1.Values.push(personInfo.concat(personTags).concat(eventTags).concat(['3']));
-
     // Reset event tags
     eventTags = [
       '0',
@@ -517,7 +509,21 @@ function buildRequest (person) {
       '0',
       '0'
     ];
+
+    for (var et = 0; et < events[e].tags.length; et++) {
+      for (var j = 0; j < tags.length; j++) {
+        if (events[e].tags[et] === tags[j]) {
+          eventTags[j] = "true";
+        }
+      }
+    }
+    // Concat arrays
+    request.Inputs.PersonEvent.Values.push(personInfo.concat(personTags).concat(eventTags).concat([Math.floor(Math.random() * 6) + '']));
   }
+
+  request.GlobalParameters = {
+    "Custom missing value": "false"
+  };
 
   return request;
 }
