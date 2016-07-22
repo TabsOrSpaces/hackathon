@@ -1,4 +1,4 @@
-html, body, div, span, input {
+html, body, div, span, input, img {
   padding: 0;
   margin: 0;
   border: 0;
@@ -48,6 +48,7 @@ body {
   display: inline-block;
   color: #FFFFFF;
   width: 100%;
+  font-size: 30px;
 }
 
 .center {
@@ -89,9 +90,10 @@ input[type="text"] {
   font-size: 20px;
   border: 2px solid #e0e0e0;
   border-radius: 4px;
-  width: 70%;
+  width: 62%;
   margin-left: 4%;
   height: 30px;
+  padding: 5px;
 }
 
 input[type="text"]:focus {
@@ -103,8 +105,8 @@ input[type="submit"] {
   font-size: 20px;
   border: 2px solid #e0e0e0;
   border-radius: 4px;
-  width: 20%;
-  height: 30px;
+  width: 18%;
+  height: 40px;
 }
 
 input[type="submit"]:focus {
@@ -135,7 +137,7 @@ input[type="submit"]:hover {
   position: absolute;
   left: 0px;
   top: 28px;
-  height: 4px;
+  height: 3px;
   width: 0px;
   border-radius: 4px;
   background-color: #003399;
@@ -155,7 +157,9 @@ input[type="submit"]:hover {
 .view {
   display: none;
   position: relative;
-  width: 100%;
+  width: 96%;
+  margin-left: 2%;
+  margin-top: 30px;
 }
 
 .person-chooser {
@@ -215,9 +219,110 @@ input[type="submit"]:hover {
 }
 
 .profile-pic {
-  width: 50%;
-  height: 50%;
+  display: block;
+  margin: auto;
+  width: 80%;
+  height: 80%;
   border-radius: 50%;
+  padding-bottom: 20px;
+}
+
+.highlights {
+  font-size: 16px;
+}
+
+.date {
+  font-weight: bold;
+}
+
+.time {
+  font-style: italic;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.stars {
+  direction: rtl;
+  cursor: pointer;
+}
+
+.star:after {
+  content: "\2606";
+}
+
+.star:hover:after, .star:hover ~ .star:after {
+  content: "\2605";
+}
+
+.button {
+  text-align: right;
+  padding: 8px;
+  background-color: #003399;
+  color: #FFF;
+  border-radius: 2px;
+  font-size: 15px;
+  margin-right: 20px;
+
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition:      all .2s ease-in-out;
+  -moz-transition:    all .2s ease-in-out;
+  -ms-transition:     all .2s ease-in-out;
+  -kthtml-transition: all .2s ease-in-out;
+  transition:         all .2s ease-in-out;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #001133;
+}
+
+.event {
+  position: relative;
+  width: 375px;
+  height: 250px;
+  overflow: auto;
+  float: left;
+  color: #FFF;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.event-picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 500;
+}
+
+.grey-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: .5;
+  background-color: #000;
+  z-index: 1000;
+}
+
+.event-details {
+  position: absolute;
+  top: 10;
+  left: 10px;
+  z-index: 1500;
+}
+
+.event-title {
+  font-size: 24px;
+  font-weight: bold;
 }
 
 /* Size-specific styles */

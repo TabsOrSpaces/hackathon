@@ -20,13 +20,13 @@
         <div class="card person" onclick="selectPerson('person1')">
           <img class="demo-pic" src="images/person1.jpg">
           <h3 class="center">Dan</h3>
-          <div>Dan is 46 and works in downtown columbus. He's active fellow, so he enjoys golf, tennis and football. Outside of sports, he likes to listen to music while drinking coffee.</div>
+          <div>Dan is 46 and works in downtown columbus. He's an active fellow: he enjoys golf, tennis and football. Outside of sports, he enjoys listening to music and drinking coffee.</div>
         </div>
 
         <div class="card person person-offset" onclick="selectPerson('person2')">
           <img class="demo-pic" src="images/person2.jpg">
           <h3 class="center">Michelle</h3>
-          <div>Michelle is a mom at 34 years young. She's recently been researching pets and pizza places for her children. She loves the outdoors, particularly hiking and rowing. She's also very interested in politics.</div>
+          <div>Michelle is a Dublin mom at 34 years young. She's recently been researching pets and pizza shops for her children. She loves the outdoors, particularly hiking and rowing. She's also very interested in politics.</div>
         </div>
 
         <div class="card person person-offset" onclick="selectPerson('person3')">
@@ -51,9 +51,9 @@
         <div class="card">
           <div class="profile">
             <img id="profile-pic" class="profile-pic">
-            <span id="name" class="name">Name</span>
-            <span id="position" class="position">Position</span>
-            <span id="email" class="email">Email</span>
+            <div id="name" class="center">Name</div>
+            <div id="position" class="center">Position</div>
+            <div class="date time center">3 upcoming events</div>
           </div>
         </div>
         <!-- Search bar -->
@@ -65,12 +65,14 @@
         </div>
         <!-- Highlights card -->
         <div class="card left-section-wrapper">
+          <h4 class="center">Upcoming events</h4>
           <div class="highlights">
-            <span>Left arrow</span>
-            <span>slide 1</span>
-            <span>slide 2</span>
-            <span>slide 3</span>
-            <span>Right arrow</span>
+            <div class="date">Today</div>
+            <div><span class="time">9:00 AM</span><span> - Standup</span></div>
+            <div><span class="time">11:00 AM</span><span> - Lunch with manager</span></div>
+            <br>
+            <div class="date">July 22</div>
+            <div><span class="time">12:00 PM</span><span> - Team lunch</span></div>
           </div>
         </div>
       </div>
@@ -79,9 +81,9 @@
       <div class="card section center-section">
         <!-- Center nav -->
         <div id="center-nav" class="center-nav" onmouseout="setSelector()">
-          <span id="upcoming-events-nav" class="nav-item" onclick="moveSelector(this, true)" onmouseover="moveSelector(this, false)">Upcoming Events</span>
-          <span id="my-cal-nav" class="nav-item" onclick="moveSelector(this, true)" onmouseover="moveSelector(this, false)">MyCal</span>
-          <span id="rankings-nav" class="nav-item" onclick="moveSelector(this, true)" onmouseover="moveSelector(this, false)">Rankings</span>
+          <span id="upcoming-events-nav" class="nav-item" onclick="moveSelector(this, true)" onmouseover="moveSelector(this, false)">Highlights</span>
+          <span id="my-cal-nav" class="nav-item" onclick="moveSelector(this, true)" onmouseover="moveSelector(this, false)">My Calendar</span>
+          <span id="nearby-nav" class="nav-item" onclick="moveSelector(this, true)" onmouseover="moveSelector(this, false)">Events nearby</span>
           <span id="search-results-nav" class="nav-item hide" onclick="moveSelector(this, true)" onmouseover="moveSelector(this, false)">Search Results</span>
           <span id="close-search-results-button" class="close-button hide" onclick="closeSearchResults()"onmouseover="moveSelector($('search-results-nav'), false)">&#10006;</span>
           <span id="selector" class="selector"></span>
@@ -91,17 +93,54 @@
 
         <!-- Upcoming Events -->
         <div id="upcoming-events" class="view">
-        Upcoming events
+        <!--
+          <div id="event-1" class="card event">
+            <img class="event-picture" src="images/event1.jpg">
+            <div class="grey-screen"></div>
+            <div class="event-details">
+              <div class="event-title">Stir Trek</div>
+              <div class="date">August 5</div>
+              <div class="time">11:30 AM</div>
+              <br>
+              <div class="description">Go on quests to stir as many things as possible!</div>
+              <br>
+              <br>
+              <div class="stars float-left">
+                <span class="star" title="!Can't wait"></span><span class="star" title="Looking forward to it"></span><span class="star" title="Could be fun"></span><span class="star" title="I'll probably pass"></span><span class="star" title="No thanks"></span>
+              </div>
+              <div class="float-right"><span class="button">Add to Calendar</span></div>
+              <br>
+            </div>
+          </div>
+
+          <div id="event-2" class="card event">
+            <img class="event-picture" src="images/event6.jpg">
+            <div class="grey-screen"></div>
+            <div class="event-details">
+              <div class="event-title">Fly a Kite</div>
+              <div class="date">August 10</div>
+              <div class="time">12:30 PM</div>
+              <br>
+              <div class="description">Go fly a kite! The weather is fantastic. Stretch your legs.</div>
+              <br>
+              <br>
+              <div class="stars float-left">
+              <span class="star" title="!Can't wait" onclick="selectRating(this)"></span><span class="star" title="Looking forward to it" onclick="selectRating(this)"></span><span id="3-star-event-2" class="star" title="Could be fun" onclick="selectRating(this)"></span><span id="2-star-event-2" class="star" title="I'll probably pass" onclick="selectRating(this)"></span><span id="2-star-event-2" class="star" title="No thanks" onclick="selectRating(this)"></span>
+              </div>
+              <div class="float-right"><span class="button">Add to Calendar</span></div>
+              <br>
+            </div>
+          </div>
+          -->
         </div>
 
         <!-- MyCal -->
         <div id="my-cal" class="view">
-        my cal
+        My Cal
         </div>
 
-        <!-- Rankings -->
-        <div id="rankings" class="view">
-        rankings
+        <!-- Nearby events -->
+        <div id="nearby" class="view">
         </div>
 
         <!-- Search Results -->
