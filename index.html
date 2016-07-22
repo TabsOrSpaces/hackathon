@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>WOWendar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,700" />
+    <script src="scripts/main.js"></script>
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body id="home">
+    <!-- Person chooser for demo -->
+    <div id="person-chooser" class="person-chooser">
+      <h1 class="center">Who are you?</h1>
+      <div class="people">
+        <div class="card person" onclick="selectPerson('person1')">
+          <img class="demo-pic" src="images/person1.jpg">
+          <h3 class="center">Dan</h3>
+          <div>Dan is 46 and works in downtown columbus. He's an active fellow: he enjoys golf, tennis and football. Outside of sports, he enjoys listening to music and drinking coffee.</div>
+        </div>
+
+        <div class="card person person-offset" onclick="selectPerson('person2')">
+          <img class="demo-pic" src="images/person2.jpg">
+          <h3 class="center">Michelle</h3>
+          <div>Michelle is a Dublin mom at 34 years young. She's recently been researching pets and pizza shops for her children. She loves the outdoors, particularly hiking and rowing. She's also very interested in politics.</div>
+        </div>
+
+        <div class="card person person-offset" onclick="selectPerson('person3')">
+          <img class="demo-pic" src="images/person3.jpg">
+          <h3 class="center">Linda</h3>
+          <div>Linda works in Scottsdale and just celebrated her 25th birthday. She's a techy, and her interests include programming, board games and video games. She also likes star wars and pokemon!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+      <img class="logo" src="images/logo_nw.png">
+      <div class="absolute-center title">WOWendar!</div>
+    </div>
+
+    <!-- All content -->
+    <div class="content">
+      <!-- Left section -->
+      <div class="section card left-section">
+        <!-- Profile card -->
+        <div class="card">
+          <div class="profile">
+            <img id="profile-pic" class="profile-pic">
+            <div id="name" class="center">Name</div>
+            <div id="position" class="center">Position</div>
+            <div class="date time center">3 upcoming events</div>
+          </div>
+        </div>
+        <!-- Search bar -->
+        <div class="card left-section-wrapper">
+          <form onsubmit="showSearchResults(); return false;">
+            <input id="searchBox" type="text" placeholder="Find events...">
+            <input id="searchGo" type="submit" value="Go!">
+          </form>
+        </div>
+        <!-- Highlights card -->
+        <div class="card left-section-wrapper">
+          <h4 class="center">Upcoming events</h4>
+          <div class="highlights">
+            <div class="date">Today</div>
+            <div><span class="time">9:00 AM</span><span> - Standup</span></div>
+            <div><span class="time">11:00 AM</span><span> - Lunch with manager</span></div>
+            <br>
+            <div class="date">July 22</div>
+            <div><span class="time">12:00 PM</span><span> - Team lunch</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center section -->
+      <div class="card section center-section">
+        <!-- Center nav -->
+        <div id="center-nav" class="center-nav" onmouseout="setSelector()">
+          <span id="upcoming-events-nav" class="nav-item" onclick="moveSelector(this, true)" onmouseover="moveSelector(this, false)">Highlights</span>
+          <span id="my-cal-nav" class="nav-item" onclick="moveSelector(this, true)" onmouseover="moveSelector(this, false)">My Calendar</span>
+          <span id="nearby-nav" class="nav-item" onclick="moveSelector(this, true)" onmouseover="moveSelector(this, false)">Events nearby</span>
+          <span id="search-results-nav" class="nav-item hide" onclick="moveSelector(this, true)" onmouseover="moveSelector(this, false)">Search Results</span>
+          <span id="close-search-results-button" class="close-button hide" onclick="closeSearchResults()"onmouseover="moveSelector($('search-results-nav'), false)">&#10006;</span>
+          <span id="selector" class="selector"></span>
+        </div>
+
+        <!-- Views -->
+
+        <!-- Upcoming Events -->
+        <div id="upcoming-events" class="view">
+        <!--
+          <div id="event-1" class="card event">
+            <img class="event-picture" src="images/event1.jpg">
+            <div class="grey-screen"></div>
+            <div class="event-details">
+              <div class="event-title">Stir Trek</div>
+              <div class="date">August 5</div>
+              <div class="time">11:30 AM</div>
+              <br>
+              <div class="description">Go on quests to stir as many things as possible!</div>
+              <br>
+              <br>
+              <div class="stars float-left">
+                <span class="star" title="!Can't wait"></span><span class="star" title="Looking forward to it"></span><span class="star" title="Could be fun"></span><span class="star" title="I'll probably pass"></span><span class="star" title="No thanks"></span>
+              </div>
+              <div class="float-right"><span class="button">Add to Calendar</span></div>
+              <br>
+            </div>
+          </div>
+
+          <div id="event-2" class="card event">
+            <img class="event-picture" src="images/event6.jpg">
+            <div class="grey-screen"></div>
+            <div class="event-details">
+              <div class="event-title">Fly a Kite</div>
+              <div class="date">August 10</div>
+              <div class="time">12:30 PM</div>
+              <br>
+              <div class="description">Go fly a kite! The weather is fantastic. Stretch your legs.</div>
+              <br>
+              <br>
+              <div class="stars float-left">
+              <span class="star" title="!Can't wait" onclick="selectRating(this)"></span><span class="star" title="Looking forward to it" onclick="selectRating(this)"></span><span id="3-star-event-2" class="star" title="Could be fun" onclick="selectRating(this)"></span><span id="2-star-event-2" class="star" title="I'll probably pass" onclick="selectRating(this)"></span><span id="2-star-event-2" class="star" title="No thanks" onclick="selectRating(this)"></span>
+              </div>
+              <div class="float-right"><span class="button">Add to Calendar</span></div>
+              <br>
+            </div>
+          </div>
+          -->
+        </div>
+
+        <!-- MyCal -->
+        <div id="my-cal" class="view">
+        My Cal
+        </div>
+
+        <!-- Nearby events -->
+        <div id="nearby" class="view">
+        </div>
+
+        <!-- Search Results -->
+        <div id="search-results" class="view">
+          <div>
+            <span>Nearby events matching "</span><span id="searchterm-results"></span><span>":</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="absolute-center">&#169; 2016 tabs_orSpaces. No rights reserved :(</div>
+    </div>
+  </body>
+</html>
