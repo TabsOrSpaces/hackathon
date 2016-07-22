@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>WOWendar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,700" />
+    <script src="scripts/main.js"></script>
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body id="home">
+    <!-- Person chooser for demo -->
+    <div id="person-chooser" class="person-chooser">
+      <h1 class="center">Who are you?</h1>
+      <div class="people">
+        <div class="card person" onclick="selectPerson('person1')">
+          <img class="demo-pic" src="images/person1.jpg">
+          <h3 class="center">Dan</h3>
+          <div>Dan is 46 and works in downtown columbus. He's active fellow, so he enjoys golf, tennis and football. Outside of sports, he likes to listen to music while drinking coffee.</div>
+        </div>
+
+        <div class="card person person-offset" onclick="selectPerson('person2')">
+          <img class="demo-pic" src="images/person2.jpg">
+          <h3 class="center">Michelle</h3>
+          <div>Michelle is a mom at 34 years young. She's recently been researching pets and pizza places for her children. She loves the outdoors, particularly hiking and rowing. She's also very interested in politics.</div>
+        </div>
+
+        <div class="card person person-offset" onclick="selectPerson('person3')">
+          <img class="demo-pic" src="images/person3.jpg">
+          <h3 class="center">Linda</h3>
+          <div>Linda works in Scottsdale and just celebrated her 25th birthday. She's a techy, and her interests include programming, board games and video games. She also likes star wars and pokemon!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+      <img class="logo" src="images/logo_nw.png">
+      <div class="absolute-center title">WOWendar!</div>
+    </div>
+
+    <!-- All content -->
+    <div class="content">
+      <!-- Left section -->
+      <div class="section card left-section">
+        <!-- Profile card -->
+        <div class="card">
+          <div class="profile">
+            <img id="profile-pic" class="profile-pic">
+            <span id="name" class="name">Name</span>
+            <span id="position" class="position">Position</span>
+            <span id="email" class="email">Email</span>
+          </div>
+        </div>
+        <!-- Search bar -->
+        <div class="card left-section-wrapper">
+          <form onsubmit="showSearchResults(); return false;">
+            <input id="searchBox" type="text" placeholder="Find events...">
+            <input id="searchGo" type="submit" value="Go!">
+          </form>
+        </div>
+        <!-- Highlights card -->
+        <div class="card left-section-wrapper">
+          <div class="highlights">
+            <span>Left arrow</span>
+            <span>slide 1</span>
+            <span>slide 2</span>
+            <span>slide 3</span>
+            <span>Right arrow</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center section -->
+      <div class="card section center-section">
+        <!-- Center nav -->
+        <div id="center-nav" class="center-nav" onmouseout="setSelector()">
+          <span id="upcoming-events-nav" class="nav-item" onclick="moveSelector(this, true)" onmouseover="moveSelector(this, false)">Upcoming Events</span>
+          <span id="my-cal-nav" class="nav-item" onclick="moveSelector(this, true)" onmouseover="moveSelector(this, false)">MyCal</span>
+          <span id="rankings-nav" class="nav-item" onclick="moveSelector(this, true)" onmouseover="moveSelector(this, false)">Rankings</span>
+          <span id="search-results-nav" class="nav-item hide" onclick="moveSelector(this, true)" onmouseover="moveSelector(this, false)">Search Results</span>
+          <span id="close-search-results-button" class="close-button hide" onclick="closeSearchResults()"onmouseover="moveSelector($('search-results-nav'), false)">&#10006;</span>
+          <span id="selector" class="selector"></span>
+        </div>
+
+        <!-- Views -->
+
+        <!-- Upcoming Events -->
+        <div id="upcoming-events" class="view">
+        Upcoming events
+        </div>
+
+        <!-- MyCal -->
+        <div id="my-cal" class="view">
+        my cal
+        </div>
+
+        <!-- Rankings -->
+        <div id="rankings" class="view">
+        rankings
+        </div>
+
+        <!-- Search Results -->
+        <div id="search-results" class="view">
+          <div>
+            <span>Nearby events matching "</span><span id="searchterm-results"></span><span>":</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="absolute-center">&#169; 2016 tabs_orSpaces. No rights reserved :(</div>
+    </div>
+  </body>
+</html>
